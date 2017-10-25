@@ -2,6 +2,8 @@ export { default as StyleGuideProvider } from './StyleGuideProvider/StyleGuidePr
 export { default as SeekApp } from './StyleGuideProvider/StyleGuideProvider'; // Alias for backwards compatibility
 
 // Components
+export { default as Accordion } from './Accordion/Accordion';
+export { default as AccordionSection } from './AccordionSection/AccordionSection';
 export { default as Button } from './Button/Button';
 export { default as ButtonGroup } from './ButtonGroup/ButtonGroup';
 export { default as Footer } from './Footer/Footer';

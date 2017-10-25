@@ -13,6 +13,7 @@ import Header from 'seek-style-guide/react/Header/Header.demo';
 import Footer from 'seek-style-guide/react/Footer/Footer.demo';
 import Loader from 'seek-style-guide/react/Loader/Loader.demo';
 import Logo from 'seek-style-guide/react/Logo/Logo.demo';
+import Accordion from 'seek-style-guide/react/Accordion/Accordion.demo';
 
 export default [
   Text,
@@ -29,5 +30,6 @@ export default [
   Loader,
   Logo,
   Header,
-  Footer
+  Footer,
+  Accordion
 ];
