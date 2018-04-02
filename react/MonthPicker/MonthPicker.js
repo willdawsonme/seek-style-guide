@@ -9,7 +9,6 @@ import CustomMonthPicker from './CustomMonthPicker/CustomMonthPicker';
 import NativeMonthPicker from './NativeMonthPicker/NativeMonthPicker';
 
 import FieldMessage from '../private/FieldMessage/FieldMessage';
-import FieldLabel from '../private/FieldLabel/FieldLabel';
 
 const currYear = new Date().getFullYear();
 
@@ -69,16 +68,23 @@ export default class MonthPicker extends Component {
       maxYear,
       ascendingYears
     } = this.props;
+    // eslint-disable-next-line react/prop-types
+    const { label, labelProps, secondaryLabel, tertiaryLabel } = this.props;
+
     const monthPickerProps = {
       className: styles.input,
-      ...(id ? { id } : {}),
+      id,
       value,
       onChange,
       onBlur,
       valid,
       minYear,
       maxYear,
-      ascendingYears
+      ascendingYears,
+      label,
+      labelProps,
+      secondaryLabel,
+      tertiaryLabel
     };
 
     return native ? (
@@ -98,10 +104,6 @@ export default class MonthPicker extends Component {
     /* eslint-disable react/prop-types */
     const {
       id,
-      label,
-      labelProps,
-      secondaryLabel,
-      tertiaryLabel,
       invalid,
       help,
       helpProps,
@@ -113,9 +115,6 @@ export default class MonthPicker extends Component {
 
     return (
       <div className={classNames}>
-        <FieldLabel
-          {...{ id, label, labelProps, secondaryLabel, tertiaryLabel }}
-        />
         {this.renderInput()}
         <FieldMessage
           {...{ id, invalid, help, helpProps, valid, message, messageProps }}

@@ -2,13 +2,25 @@
 
 .root {
   display: flex;
-  justify-content: space-between;
+}
 
-  .dropdown {
-    flex-basis: 45%;
+.monthWrapper {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding-right: @gutter-width / 2;
+}
 
-    .dropdownInput {
-      margin-bottom: 0;
-    }
-  }
+.yearWrapper {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding-left: @gutter-width / 2;
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.yearLabel {
+  display: block;
+  height: @row-height * 5;
 }

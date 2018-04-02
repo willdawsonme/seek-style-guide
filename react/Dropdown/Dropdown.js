@@ -95,9 +95,9 @@ export default class Dropdown extends Component {
       [styles.placeholderSelected]: !inputProps.value
     });
     const allInputProps = {
-      ...combineClassNames(inputProps, inputStyles),
       ...(id ? { id } : {}),
-      ...(id ? { 'aria-describedby': `${id}-message` } : {})
+      ...(id ? { 'aria-describedby': `${id}-message` } : {}),
+      ...combineClassNames(inputProps, inputStyles)
     };
 
     return (
