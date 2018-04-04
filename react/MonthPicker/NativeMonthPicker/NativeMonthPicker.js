@@ -39,13 +39,11 @@ export default class NativeMonthPicker extends Component {
       year: PropTypes.number
     }),
     valid: PropTypes.bool,
-    className: PropTypes.string,
     id: PropTypes.string
   };
 
   static defaultProps = {
-    value: {},
-    className: ''
+    value: {}
   };
 
   constructor() {
@@ -72,7 +70,7 @@ export default class NativeMonthPicker extends Component {
   }
 
   render() {
-    const { value, className, valid, id } = this.props;
+    const { value, valid, id } = this.props;
     // eslint-disable-next-line react/prop-types
     const { label, labelProps, secondaryLabel, tertiaryLabel } = this.props;
 
@@ -80,14 +78,19 @@ export default class NativeMonthPicker extends Component {
 
     const rootClasses = classnames({
       [styles.root]: true,
-      [styles.invalid]: valid === false,
-      [className]: className
+      [styles.invalid]: valid === false
     });
 
     return (
       <div className={rootClasses}>
         <FieldLabel
-          {...{ id: `${id}`, label: label ? <span>{label} <ScreenReaderOnly>Month Year</ScreenReaderOnly></span> : <ScreenReaderOnly>Month Year</ScreenReaderOnly>, labelProps, secondaryLabel, tertiaryLabel }}
+          {...{
+            id,
+            label: <span>{label}<ScreenReaderOnly> Month Year</ScreenReaderOnly></span>,
+            labelProps,
+            secondaryLabel,
+            tertiaryLabel
+          }}
         />
         <ChevronIcon
           className={styles.chevron}
@@ -95,7 +98,7 @@ export default class NativeMonthPicker extends Component {
           direction="down"
         />
         <input
-          id={id}
+          {...(id ? { id } : {})}
           className={styles.input}
           type="month"
           value={inputValue}
